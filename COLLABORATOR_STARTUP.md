@@ -33,7 +33,9 @@ docker compose up -d postgres redis elasticsearch milvus-etcd milvus-minio milvu
 
 Notes:
 - `db-init` is a one-shot container. `Exited (0)` means success.
-- `db-init` runs `sql/aishop_postgres.sql` only (initial CSV-based seed dataset).
+- `db-init` runs SQL in this fixed order:
+  1) `sql/aishop_postgres.sql` (base schema + base seed)
+  2) `sql/products_from_csv_merged_dedup_data5_format.sql` (re-import products from CSV dataset)
 - Do not use `--profile init` for daily startup, or initialization SQL may run again.
 - Backend container is intentionally removed from compose; backend runs in IDEA locally.
 

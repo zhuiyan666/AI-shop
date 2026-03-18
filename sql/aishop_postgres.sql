@@ -3776,9 +3776,6 @@ ALTER TABLE ONLY public.products
 --
 --
 
-ALTER TABLE ONLY public.products
-
-
 --
 -- Name: user_sessions user_sessions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
